@@ -10,6 +10,7 @@
     "ios": {
       "icon": "./assets/expo.icon"
     },
+    
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -23,20 +24,18 @@
       "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
-        }
-      ]
-    ],
+"plugins": [
+  [
+    "expo-image-picker",
+    {
+      "photosPermission": "Додаток потребує доступ до фото для збереження зображень ліків."
+    }
+  ]
+],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
     }
+    
   }
 }

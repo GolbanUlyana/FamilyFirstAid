@@ -1,18 +1,22 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <>
+      <StatusBar style="light" />
+      <Stack screenOptions={{ 
+        headerStyle: { backgroundColor: '#2c3e50' },
+        headerTintColor: '#fff',
+        headerTitleStyle: { fontWeight: 'bold' }
+      }}>
+        <Stack.Screen name="index" options={{ title: 'Сімейна аптечка' }} />
+        <Stack.Screen name="add" options={{ title: 'Додати ліки' }} />
+        <Stack.Screen name="edit" options={{ title: 'Редагувати ліки' }} />
+        <Stack.Screen name="schedule" options={{ title: 'Прийом ліків' }} />
+        <Stack.Screen name="shopping" options={{ title: 'Треба докупити' }} />
+        <Stack.Screen name="compatibility" options={{ title: 'Сумісність' }} />
+      </Stack>
+    </>
   );
 }
